@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title> Anagram App</title>
+		<style>
+    *{font-size:40px;font-family:cambria;margin:auto;text-align:center;}
+     body {width:100%;background-color: goldenrod;}
+     h1 {background-color:black;color:rgb(207,190,152);width:80%;border-radius:20px;}
+	.btn {border-radius:10px;background-color:rgb(183, 183, 209);}
+	.b1 {border-radius:20px ;color:rgb(160, 66, 66);}
+	</style>
+	</head>
+	<body>
+		<h1>Anagram Checker</h1><br/>
+		<form onsubmit="check()">
+		<input type="text" id="str1" placeholder="Enter First String" class="b1"/>
+		<br/><br/>
+		<input type="text" id="str2" placeholder="Enter Second String" class="b1"/>
+		<br/><br/>
+		<input type="submit" value="Check" class="btn"/>
+		</form>
+		<h2 id="msg"></h2>
+	    <script>
+		function check()
+		{
+		   event.preventDefault();
+		   let str1=document.getElementById("str1");
+		   let str2=document.getElementById("str2");
+		   let msg=document.getElementById("msg");
+		   if(str1.value.trim()==="")
+		   {
+			alert("Please Enter First String");
+			str1.value="";
+			msg.innerHTML="";
+			str1.focus();
+			return;
+	       }
+		   if(str2.value.trim()==="")
+		   {
+			alert("Please Enter Second String");
+			str2.value="";
+			msg.innerHTML="";
+			str2.focus();
+			return;
+	       }
+		   let text1=str1.value.toLowerCase().split("").sort().join("");
+		   let text2=str2.value.toLowerCase().split("").sort().join("");
+		   if(text1===text2)
+		   		msg.innerHTML="Yes, it's is Anagram";
+		   else
+		   		msg.innerHTML="No, it's not a Anagram";
+
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
